@@ -39,9 +39,8 @@ function renderBookCards(books) {
             : `<img src="../assets/heart.svg" alt="Favorite">`;
 
         favoriteBtn.addEventListener('click', e => {
-            e.stopPropagation(); // чтобы клик по сердцу не открывал модалку
+            e.stopPropagation();
             toggleFavorite(book);
-            renderFavorites();
             favoriteBtn.innerHTML = isFavorite(book.key)
                 ? `<img src="../assets/heart-filled.svg" alt="Remove">`
                 : `<img src="../assets/heart.svg" alt="Favorite">`;
@@ -94,7 +93,6 @@ function showModal(details, book) {
     const favBtnModal = modal.querySelector('.favorite-btn-modal');
     favBtnModal.addEventListener('click', () => {
         toggleFavorite(book);
-        renderFavorites();
         favBtnModal.innerHTML = isFavorite(book.key)
             ? `<img src="../assets/heart-filled.svg" alt="Remove">`
             : `<img src="../assets/heart.svg" alt="Favorite">`;
@@ -108,6 +106,9 @@ function isFavorite(bookKey) {
 function toggleFavorite(book) {
     if (isFavorite(book.key)) removeFavorite(book.key);
     else saveFavorite(book);
+
+    renderBookCards(cache.filteredBooks);
+    renderFavorites();
 }
 
 export function renderFavorites() {
@@ -139,8 +140,7 @@ export function renderFavorites() {
         removeBtn.className = 'remove-favorite-btn';
         removeBtn.innerHTML = `<img src="../assets/heart-filled.svg" alt="Remove">`;
         removeBtn.addEventListener('click', () => {
-            removeFavorite(book.key);
-            renderFavorites();
+            toggleFavorite(book);
         });
 
         card.appendChild(removeBtn);
