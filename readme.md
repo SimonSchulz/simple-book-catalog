@@ -11,7 +11,7 @@ Simple book catalog application with search, favorites, author filter, live sear
 4. Open `dist/index.html` in browser
 
 ## Folder Structure
-- `src/` - JS source files and CSS
+- `src/` - JS source files
 - `assets/` - images 
 - `index.html` - main HTML file
 - `dist/` - production build (HTML, JS, assets)
