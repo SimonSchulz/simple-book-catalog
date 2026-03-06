@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Library</title>
+    <link rel="icon" href="./assets/book.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="logo-container">
+            <div>
+                <img class="book-icon" src="./assets/book.svg" alt="">
+            </div>
+            <div>
+                <h1>The Library</h1>
+                <p>Discover your next favorite book</p>
+            </div>
+        </div>
+    <div id="theme-switcher">
+        <button data-theme="light">Light</button>
+        <button data-theme="dark">Dark</button>
+    </div>
+    </div>
+</header>
+
+<main>
+    <div class="main-title">
+        <h1>Discover Your Next Great Read</h1>
+        <p>Search millions of books, build your personal library, and never lose track of what to read next.</p>
+    </div>
+    <div class="search-container">
+        <label for="search-input"></label><input type="text" id="search-input" placeholder="Search for books by title or author...">
+    </div>
+    <div>
+        <select id="author-filter">
+            <option value="">All authors</option>
+        </select>
+    </div>
+    <div class="main-content">
+        <section class="books-section">
+            <div class="filters">
+                <div id="loading" style="display:none;">Loading...</div>
+            </div>
+            <div id="results" class="books-grid"></div>
+        </section>
+
+        <aside id="favorites-section" class="favorites-section">
+            <h2>Favorites</h2>
+            <div id="favorite-list"></div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    Powered by <a href="https://openlibrary.org" target="_blank">Open Library</a>
+</footer>
+
+<script type="module" src="./src/app.js"></script>
+</body>
+</html>
