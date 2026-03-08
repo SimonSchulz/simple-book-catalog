@@ -145,6 +145,15 @@ export function renderFavorites() {
 
         card.appendChild(removeBtn);
         favoritesContainer.appendChild(card);
+        card.addEventListener('click', async () => {
+            try {
+                const details = await getBookDetails(book.key);
+                showModal(details, book);
+            } catch (err) {
+                alert('Failed to load book details');
+                console.error(err);
+            }
+        });
     });
 }
 
