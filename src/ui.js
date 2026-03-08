@@ -139,7 +139,8 @@ export function renderFavorites() {
         const removeBtn = document.createElement('button');
         removeBtn.className = 'remove-favorite-btn';
         removeBtn.innerHTML = `<img src="../assets/heart-filled.svg" alt="Remove">`;
-        removeBtn.addEventListener('click', () => {
+        removeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             toggleFavorite(book);
         });
 
